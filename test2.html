@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title> MOn TEST A MOI</title>
+		<meta charset="utf-8">
+		<!--<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /> -->
+		<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+	</head>
+	<body>
+		<py-config>
+			packages=["matplotlib","pandas"]
+		</py-config>
+		<h1> tout ok</h1>
+		<py-script>
+			import pandas as pd
+			
+			from pyodide.http import open_url
+			
+			url = (
+			"https://raw.githubusercontent.com/Cheukting/pyscript-ice-cream/main/bj-products.csv"
+			)
+			
+			ice_data = pd.read_csv(open_url(url))
+			ice_data
+			print(ice_data)
+			print('HELLO')
+			
+		</py-script>
+		
+		<py-repl>
+			ice_data
+		</py-repl>
+		
+	</body>
+</html>
