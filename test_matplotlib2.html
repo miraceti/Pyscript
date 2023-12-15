@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title> matplotlib 2</title>
+		<meta charset="utf-8">
+		<!--<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" /> -->
+		<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+        
+        <py-env>
+			- matplotlib
+		</py-env>
+
+	</head>
+	<body>
+		<py-config>
+			packages=["matplotlib","pandas","numpy"]
+		</py-config>
+		<h1> BODY</h1>
+        <strong>Matplotlib Output</strong>
+        <div id="plot"></div>
+		<py-script output="plot">
+			
+            import matplotlib
+            import matplotlib.pyplot as plt
+            import numpy as np
+
+            #data for plotting
+            t = np.arange(0.0, 2.0, 0.01)
+            s = 1 + np.sin(2 * np.pi * t)
+
+            fig, ax = plt.subplots()
+            ax.plot(t, s)
+
+            ax.set(xlabel='time (s)', ylabel='voltage (mV)',
+                    title='About as simple as it gets, folks')
+
+            ax.grid()
+
+            display(fig)
+
+ 			
+		</py-script>
+		
+		
+	</body>
+</html>

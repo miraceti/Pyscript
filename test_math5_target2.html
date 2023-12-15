@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> MOn TEST A 5</title>
+		<script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
+		<link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" >
+		
+		<h1> MATH 5</h1>
+	</head>
+	<body>
+		<p>First</p>
+		<div id="foo1"></div>
+		<p>Second</p>
+		<div id="foo2"></div>
+		<script type="py" target="#foo1">
+			from pyscript import display
+
+			for i in range(5):
+				display(i)
+		</script>
+		<script type="py">
+			from pyscript import display
+
+			for i in range(3):
+				display(i, target="#foo1")
+
+			display("Done")
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title> MOn TEST A MOI</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+		<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+	</head>
+	<body>
+		<py-config>
+			packages=["matplotlib","pandas"]
+		</py-config>
+		<h1> tout ok</h1>
+		<div id="output" class="text-5xl"></div>
+		<py-script>
+			def getSum(x, y):
+				return x + y
+			
+			sum = getSum(5, 5)
+
+			print(sum)
+			display(sum)
+			pyscript.write('output', sum)
+			
+		</py-script>
+		
+		<py-repl></py-repl>
+		
+	</body>
+</html>

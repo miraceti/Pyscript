@@ -1,0 +1,41 @@
+<!-- Upload file to pyscript -->
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>py-script demos: csv upload form</title>
+  
+    <!-- pyscript -->
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'/>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  </head>
+  <body>
+
+
+        <h1>EVENT LISTENER PYSCRIPT : gestion de bouton</h1>
+        <br>
+        <button id="run" type="button" class="button is-primary" >Premier BOUTON</button>
+          
+</body>
+          
+<py-script>
+  
+from pyodide import create_proxy
+
+runButton = document.getElementById('run')
+
+def colorChange(event):
+    runButton.setAttribute('style', 'background-color: red')
+
+cc = create_proxy(colorChange)
+
+runButton.addEventListener("click", cc)
+
+</py-script>
+
+
+
+</html>

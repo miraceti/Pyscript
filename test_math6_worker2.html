@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> MOn TEST A 6</title>
+		<script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
+		<link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" >
+		<script src="mini-coi.js"></script>
+		<h1> MATH 6</h1>
+	</head>
+	<body>
+		<p id="mystuff">Littlebug has a question</p>
+		<input type="text" value=0 id="content"></input>
+		<script type="py">
+			#pyscript classic
+			from pyscript import display
+			print("classic")
+			display("CLASSIC")
+			#from js import document
+			#p = document.getElementById("mystuff")
+			#display(f"Contents; {p.textContent}")
+		</script>
+
+		<script type="py" worker>
+			#pyscript next
+			from pyscript import display,document
+			p = document.getElementById("mystuff")
+			display(f"Contents w1; {p.textContent}", target="#content"")
+			cont = document.getElelementById("content")
+			cont.value = 43
+		</script>
+
+		<script type="py" worker>
+			#pyscript next
+			from pyscript import display,document
+			from pyodide.ffi.wrappers import add_event_listener
+
+			p = document.getElementById("mystuff")
+			display(f"Contents w2; {p.textContent}")
+
+			def double_change(event):
+				display(event.target.value * 2)
+
+			
+			cont = document.getElementById("content")
+			add_event_listener(cont, "change", double_change)
+		</script>
+	</body>
+</html>

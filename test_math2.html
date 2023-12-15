@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> MOn TEST A MOI</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+		<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+		
+		<h1> MATH 2</h1>
+	</head>
+	<body>
+		<py-config>
+			packages=["matplotlib","pandas","numpy"]
+		</py-config>
+		<main class="container h-screen flex flex-col items-center justify-center">
+			<div id="output" class="text-3xl"></div>
+			<button id="shuffle" class="mnt-4 p-2 text-white bg-blue-600 rounded" pys-onClick="shuffle_array">Shuffle</button>
+		</main>
+
+		<py-script src="./math2.py"></py-script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+
+<head>
+
+<title>
+
+Read CSV with Pandas using PyScript
+    
+</title>
+
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+<!---pyodide--> 
+
+<py-env>
+    - pandas
+</py-env>
+
+</head>
+
+<body>
+    
+    <h1>Read CSV with Pandas using PyScript</h1>
+
+    <p id="csv"></p>
+
+    <py-script>
+
+        import pandas as pd 
+
+        from pyodide.http import open_url
+
+        url_content = open_url("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv")
+
+        df = pd.read_csv(url_content)
+
+        <!-- print(df) -->
+        
+        csv = Element('csv')
+
+        csv.write(df.shape )
+        
+        csv.write(df.head())
+        
+        <!-- csv.write(df['cut'].value_counts()) -->
+        
+
+    </py-script>
+
+</body>
+
+</html>

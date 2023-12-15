@@ -1,0 +1,80 @@
+<html>
+
+<head>
+
+<title>
+
+Read CSV with Pandas using PyScript
+    
+</title>
+
+<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+<!---pyodide--> 
+
+<py-env>
+    - pandas
+</py-env>
+
+</head>
+
+<body>
+    
+    <h1>Read CSV with Pandas using PyScript and SQLITE</h1>
+
+    <p id="csv1"></p>
+    <p id="csv2"></p>
+    <br>
+    <p id="sql1"></p>
+    <br>
+    <p id="sql2"></p>
+
+    <py-script>
+
+        import pandas as pd 
+        from pyodide.http import open_url
+        import sqlite3 as sql
+
+        url_content1 = open_url("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv")
+        df = pd.read_csv(url_content1)
+
+        <!-- print(df) #to console-->
+        csv1 = Element('csv1')
+        csv1.write(df.shape )
+        csv1.write(df)
+
+        url_content2 = open_url("https://raw.githubusercontent.com/mwaskom/seaborn-data/master/diamonds.csv")
+        diamonds = pd.read_csv(url_content2)
+        csv2 = Element('csv2')
+        #csv2.write(diamonds.shape )
+        #csv2.write(diamonds)
+
+        conn = sql.connect('diamonds.db')
+        diamonds.to_sql('diamonds', conn)
+
+        #read from sql a pandas dataframe
+        df2 = pd.read_sql('SELECT * FROM diamonds LIMIT 10', conn)
+
+        #print the output
+        csv3 = Element('sql1')
+        csv3.write(df2.shape )
+        csv3.write(df2)
+
+        #filter
+        #read from sql a pandas dataframe
+        df3 = pd.read_sql('SELECT cut, avg(price) FROM diamonds group by 1', conn)
+
+        #print the output
+        csv4 = Element('sql2')
+        csv4.write(df3.shape )
+        csv4.write(df3)
+        
+        <!-- csv.write(df['cut'].value_counts()) -->
+        
+
+    </py-script>
+
+</body>
+
+</html>

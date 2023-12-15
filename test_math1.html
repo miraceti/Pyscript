@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title> MOn TEST A MOI</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+		<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+	</head>
+	<body>
+		<py-config>
+			packages=["matplotlib","pandas"]
+		</py-config>
+		<py-env>
+			- numpy
+		</py-env>
+		<h1> MATH 1</h1>
+		<div id="output" class="text-3xl"></div>
+		<div id="output1" class="text-3xl"></div>
+		<py-script>
+			import math
+			import numpy as np
+
+			pyscript.write('output', math.sqrt(10))
+			print(math.sqrt(10))
+
+			arr = np.array([22, 58, 57, 34, 5])
+			pyscript.write('output', arr)
+			print(arr)
+			print(f"My array is {arr}")
+			pyscript.write('output1', f"My array is {arr}")
+
+			
+		</py-script>
+		
+		<py-repl></py-repl>
+		
+	</body>
+</html>

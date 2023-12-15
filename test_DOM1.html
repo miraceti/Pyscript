@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+    <title> Modification DOM avec PyScript </title>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'>
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+</head>
+
+<body>
+
+<h1>Modification DOM avec PyScript</h1>
+
+<h2>Simple Compteur de caractere en Python 🐍</h2>
+<br>
+<p>Entrer un texte</p>
+<textarea name="input_text" id="input_text" placeholder="Entrer du texte...."></textarea>
+<br>
+<button id="run" type="button" class="button is-primary" pys-onClick="count">Compter</button>
+<button id="clear" type="button" class="button is-danger" pys-onClick="clear">Effacer</button>
+
+<br></br><br></br><br></br>
+<p>Sortie du code python 🐍</p>
+<br></br>
+
+<p id = 'output'></p>
+ 
+</body>
+
+<py-script>
+
+input_text = Element("input_text")    
+
+op = Element("output")
+
+def clear(*args, **kwargs):
+    input_text.clear()
+
+def count(*args, **kwargs):
+    number = len(input_text.value)
+    op.write(number)
+
+</py-script>
+
+</html>
